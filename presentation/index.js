@@ -25,8 +25,7 @@ import {
 // Import image preloader util
 import preloader from "spectacle/lib/utils/preloader";
 
-// Import theme
-import createTheme from "spectacle/lib/themes/default";
+import { theme } from "spectacle-theme-solarized-dark";
 
 // Import custom component
 import Interactive from "../assets/interactive";
@@ -44,10 +43,6 @@ const images = {
 };
 
 preloader(images);
-
-const theme = createTheme({
-  primary: "#ff4081"
-});
 
 export default class Presentation extends React.Component {
   render() {

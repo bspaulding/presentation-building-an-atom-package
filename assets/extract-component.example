@@ -1,0 +1,36 @@
+extractComponent(componentName) {
+  const pane = atom.workspace
+    .getActivePane();
+  const activeEditor = pane
+    .getActiveEditor();
+  const editor = atom.workspace
+    .buildTextEditor({
+      grammar: activeEditor.getGrammar()
+    });
+  const code = activeEditor.getSelectedText();
+  const node = parse(code);
+  const imports = getImports(
+    node,
+    parse(activeEditor.getText())
+  );
+  const vars = getPropNames(node);
+  const lines = code.split("\n");
+  const indentSpace = lines[0].match(/^\s*/)[0];
+  const indentSpaceRegExp = new RegExp(`^${indentSpace}`);
+  const singleIndent = lines[1].replace(indentSpaceRegExp, "").match(/^\s*/)[0];
+  const newEditorText = `import React from "react";
+${expandImports(imports)}
+
+export const ${componentName} = (${vars.length === 0 ? '' : `{ ${vars.join(', ')} }`}) => (
+${code.split("\n").map(line => line.replace(indentSpaceRegExp, singleIndent)).join("\n")});`;
+  editor.insertText(newEditorText);
+  pane.addItem(editor);
+  editor.saveAs(`${getFileDirectory(activeEditor)}${componentName}.js`)
+  activeEditor.insertText(`${indentSpace}<${componentName} ${vars.map(v => `${v}={${v}}`).join(' ')}/>\n`);
+  const cursor = activeEditor.getCursorBufferPosition();
+  activeEditor.moveToTop();
+  activeEditor.insertNewlineAbove();
+  activeEditor.insertText(`import { ${componentName} } from "./${componentName}";`);
+  activeEditor.setCursorBufferPosition(cursor);
+  pane.focus();
+}

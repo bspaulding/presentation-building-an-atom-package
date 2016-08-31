@@ -1,0 +1,13 @@
+function getPropNames(node) {
+  var babel = require("babel-core");
+  let vars = [];
+  babel.traverse(node, {
+    MemberExpression: function(nodePath) {
+      const name = nodePath.node.object.name;
+      if (vars.indexOf(name) < 0) {
+        vars.push(name);
+      }
+    }
+  });
+  return vars;
+}

@@ -1,0 +1,10 @@
+toggle() {
+  if (this.modalPanel.isVisible()) {
+    this.modalPanel.hide()
+  } else {
+    this.extractComponentView.input
+      .getModel().setText('');
+    this.modalPanel.show();
+    this.extractComponentView.focusInput();
+  }
+}

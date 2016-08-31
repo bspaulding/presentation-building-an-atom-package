@@ -1,0 +1,18 @@
+activate(state) {
+  this.extractComponentView = new ExtractComponentView(state.extractComponentViewState);
+  this.extractComponentView.input
+    .addEventListener(
+      "keyup",
+      this.keyUp.bind(this)
+    );
+  // ...
+}
+
+keyUp(event) {
+  if (event.keyCode === 13) {
+    this.toggle();
+    const text = event.target
+      .getModel().getText();
+    this.extractComponent(text);
+  }
+}

@@ -6,8 +6,10 @@ import {
   Appear,
   BlockQuote,
   Cite,
+	Code,
   CodePane,
   Deck,
+	Fit,
   Fill,
   Heading,
   Image,
@@ -32,13 +34,15 @@ require("spectacle/lib/themes/default/index.css");
 
 
 const images = {
+	generatePackage: require("../assets/generate-package.png")
 };
 
 preloader(images);
 
-const Presentation = () => (
+class Presentation extends React.Component {
+	render() { return (
 	<Spectacle theme={theme}>
-		<Deck transition={["zoom", "slide"]} transitionDuration={500}>
+		<Deck transition={["zoom", "slide"]} transitionDuration={300}>
 			<Slide transition={["zoom"]}>
 				<Heading size={1} fit caps>
 					Refactor React
@@ -54,11 +58,31 @@ const Presentation = () => (
 					src={require("file!../assets/atom-extract-component-demo.mov")} controls/>
 			</Slide>
 			<Slide>
-				<Heading>Generate a Package</Heading>
-
+				<Heading caps fit>Generate a Package</Heading>
+				<Layout>
+					<Fill>
+						<Image src={images.generatePackage}
+							style={{ borderRadius: 4, border: `2px solid ${theme.screen.colors.secondary}`, width: "100%", height: "100%" }}/>
+					</Fill>
+				</Layout>
+			</Slide>
+			<Slide>
+				<Heading caps fit>Publishing</Heading>
+				<List>
+					<ListItem textSize={28}>
+						Update <Code textColor="quartenary">repository</Code> in <Code textColor="quartenary">package.json</Code>
+					</ListItem>
+					<ListItem textSize={28}>
+						(Just Once) <Code textColor="quartenary">apm login</Code>
+					</ListItem>
+					<ListItem textSize={28}>
+						<Code textColor="quartenary">apm publish</Code>
+					</ListItem>
+				</List>
 			</Slide>
 		</Deck>
 	</Spectacle>
-);
+	); }
+}
 
 export default Presentation;

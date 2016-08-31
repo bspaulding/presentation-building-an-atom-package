@@ -1,0 +1,7 @@
+function parse(code) {
+  var babylon = require("babylon");
+  return babylon.parse(code, {
+    sourceType: "module",
+    plugins: ["jsx"]
+  });
+}

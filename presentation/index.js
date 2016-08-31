@@ -56,9 +56,7 @@ class Presentation extends React.Component {
 			</Slide>
 			<Slide>
 				<Heading caps>Demo</Heading>
-				<video
-					style={{ width: "100%", height: "100%" }}
-					src={require("file!../assets/atom-extract-component-demo.mov")} controls/>
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/lSJj-2bTnCE" frameBorder="0" allowFullScreen></iframe>
 			</Slide>
 			<Slide>
 				<Heading caps fit>Generate a Package</Heading>
@@ -201,10 +199,28 @@ class Presentation extends React.Component {
 			<Slide>
 				<Heading caps>Todo</Heading>
 				<List>
+					<ListItem><Code textColor="quartenary">parse(code)</Code></ListItem>
 					<ListItem><Code textColor="quartenary">getImports(node, fileNode)</Code></ListItem>
 					<ListItem><Code textColor="quartenary">getPropNames(node)</Code></ListItem>
 				</List>
 			</Slide>
+			<Slide>
+				<Code textColor="quartenary" textSize={54}>parse</Code>
+			</Slide>
+			<CodeSlide
+				transition={[]}
+				lang="js"
+				code={require("raw!../assets/parse.example")}
+				ranges={[{
+					loc: [0, 0], title: "parse(code)"
+				}, {
+					loc: [0, 1], title: "code : string"
+				}, {
+					loc: [1, 2], title: "load babylon"
+				}, {
+					loc: [2, 6], title: "parse -> AST"
+				}]}
+			/>
 			<Slide>
 				<Code textColor="quartenary" textSize={54}>getPropNames</Code>
 			</Slide>
@@ -244,7 +260,7 @@ class Presentation extends React.Component {
 				}, {
 					loc: [5, 7], title: "get element name"
 				}, {
-					loc: [7, 9], title: "new? not react-dom?"
+					loc: [7, 9], title: "new? && !react-dom?"
 				}, {
 					loc: [9, 10], title: "add it"
 				}, {
@@ -275,6 +291,7 @@ class Presentation extends React.Component {
 					</ListItem>
 				</List>
 			</Slide>
+			<Slide bgImage={images.magic}/>
 		</Deck>
 	</Spectacle>
 	); }

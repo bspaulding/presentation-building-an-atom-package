@@ -1,43 +1,27 @@
-// Import React
 import React from "react";
-
-// Import Spectacle Core tags
 import {
-  Appear,
-  BlockQuote,
-  Cite,
 	Code,
-  CodePane,
   Deck,
-	Fit,
   Fill,
   Heading,
   Image,
   Layout,
-  Link,
   ListItem,
   List,
-  Markdown,
-  Quote,
   Slide,
-  Spectacle,
-  Text
+  Spectacle
 } from "spectacle";
 import CodeSlide from "spectacle-code-slide";
-
-// Import image preloader util
 import preloader from "spectacle/lib/utils/preloader";
-
 import { theme } from "spectacle-theme-solarized-dark";
 
 require("normalize.css");
 require("spectacle/lib/themes/default/index.css");
 
-
 const images = {
 	generatePackage: require("../assets/generate-package.png"),
 	dirLayout: require("../assets/dir-layout.png"),
-	magic: require("../assets/magic.gif"),
+	magic: require("../assets/magic.gif")
 };
 
 preloader(images);
@@ -199,13 +183,13 @@ class Presentation extends React.Component {
 			<Slide>
 				<Heading caps>Todo</Heading>
 				<List>
-					<ListItem><Code textColor="quartenary">parse(code)</Code></ListItem>
-					<ListItem><Code textColor="quartenary">getImports(node, fileNode)</Code></ListItem>
-					<ListItem><Code textColor="quartenary">getPropNames(node)</Code></ListItem>
+					<ListItem><Code>parse(code)</Code></ListItem>
+					<ListItem><Code>getImports(node, fileNode)</Code></ListItem>
+					<ListItem><Code>getPropNames(node)</Code></ListItem>
 				</List>
 			</Slide>
 			<Slide>
-				<Code textColor="quartenary" textSize={54}>parse</Code>
+				<Code textSize={54}>parse</Code>
 			</Slide>
 			<CodeSlide
 				transition={[]}
@@ -222,7 +206,7 @@ class Presentation extends React.Component {
 				}]}
 			/>
 			<Slide>
-				<Code textColor="quartenary" textSize={54}>getPropNames</Code>
+				<Code textSize={54}>getPropNames</Code>
 			</Slide>
 			<CodeSlide
 				transition={[]}
@@ -241,7 +225,7 @@ class Presentation extends React.Component {
 				}]}
 			/>
 			<Slide>
-				<Code textColor="quartenary" textSize={54}>getImports</Code>
+				<Code textSize={54}>getImports</Code>
 			</Slide>
 			<CodeSlide
 				transition={[]}
@@ -281,13 +265,13 @@ class Presentation extends React.Component {
 				<Heading caps fit>Publishing</Heading>
 				<List>
 					<ListItem textSize={28}>
-						Update <Code textColor="quartenary">repository</Code> in <Code textColor="quartenary">package.json</Code>
+						Update <Code>repository</Code> in <Code>package.json</Code>
 					</ListItem>
 					<ListItem textSize={28}>
-						(Just Once) <Code textColor="quartenary">apm login</Code>
+						(Just Once) <Code>apm login</Code>
 					</ListItem>
 					<ListItem textSize={28}>
-						<Code textColor="quartenary">apm publish</Code>
+						<Code>apm publish</Code>
 					</ListItem>
 				</List>
 			</Slide>

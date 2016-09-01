@@ -21,7 +21,8 @@ require("spectacle/lib/themes/default/index.css");
 const images = {
 	generatePackage: require("../assets/generate-package.png"),
 	dirLayout: require("../assets/dir-layout.png"),
-	magic: require("../assets/magic.gif")
+	magic: require("../assets/magic.gif"),
+	thanks: require("../assets/thanks.gif")
 };
 
 preloader(images);
@@ -278,6 +279,7 @@ class Presentation extends React.Component {
 						</List>
 					</Slide>
 					<Slide bgImage={images.magic}/>
+					<Slide bgImage={images.thanks}/>
 				</Deck>
 			</Spectacle>
 		);

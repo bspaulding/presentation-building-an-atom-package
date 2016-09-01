@@ -19,10 +19,10 @@ require("normalize.css");
 require("spectacle/lib/themes/default/index.css");
 
 const images = {
-	generatePackage: require("../assets/generate-package.png"),
-	dirLayout: require("../assets/dir-layout.png"),
-	magic: require("../assets/magic.gif"),
-	thanks: require("../assets/thanks.gif")
+	generatePackage: require("../assets/generate-package.png").replace("/", ""),
+	dirLayout: require("../assets/dir-layout.png").replace("/", ""),
+	magic: require("../assets/magic.gif").replace("/", ""),
+	thanks: require("../assets/thanks.gif").replace("/", "")
 };
 
 preloader(images);

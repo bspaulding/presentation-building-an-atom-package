@@ -42,7 +42,7 @@ class Presentation extends React.Component {
 					</Slide>
 					<Slide>
 						<Heading caps>Demo</Heading>
-						<video src={require("file!../assets/atom-extract-component-demo.mov").replace("/", "")}
+						<video src={require("file!../assets/atom-extract-component-demo.mp4").replace("/", "")}
 							style={{ width: "80%" }}
 							controls/>
 					</Slide>

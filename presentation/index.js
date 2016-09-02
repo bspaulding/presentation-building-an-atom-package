@@ -42,7 +42,9 @@ class Presentation extends React.Component {
 					</Slide>
 					<Slide>
 						<Heading caps>Demo</Heading>
-						<iframe width="560" height="315" src="https://www.youtube.com/embed/lSJj-2bTnCE" frameBorder="0" allowFullScreen></iframe>
+						<video src={require("file!../assets/atom-extract-component-demo.mov").replace("/", "")}
+							style={{ width: "80%" }}
+							controls/>
 					</Slide>
 					<Slide>
 						<Heading caps fit>Generate a Package</Heading>

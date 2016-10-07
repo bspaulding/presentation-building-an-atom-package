@@ -33,9 +33,6 @@ class Presentation extends React.Component {
 			<Spectacle theme={theme}>
 				<Deck transition={["zoom", "slide"]} transitionDuration={300}>
 					<Slide transition={["zoom"]}>
-						<Heading size={1} fit caps>
-							Refactor React
-						</Heading>
 						<Heading size={1} fit textColor="secondary">
 							Building an Atom Package
 						</Heading>
@@ -164,14 +161,6 @@ class Presentation extends React.Component {
 						}, {
 							loc: [9, 10], title: "get JSX snippet"
 						}, {
-							loc: [10, 11], title: "parse it (more later)"
-						}, {
-							loc: [11, 15], title: "get imports for new file"
-						}, {
-							loc: [13, 14], title: "parsing whole file"
-						}, {
-							loc: [15, 16], title: "get prop names"
-						}, {
 							loc: [20, 25], title: "👋"
 						}, {
 							loc: [25, 26], title: "insert into new editor"
@@ -185,84 +174,11 @@ class Presentation extends React.Component {
 							loc: [32, 33], title: "add new import"
 						}]}
 					/>
-					<Slide>
-						<Heading caps>Todo</Heading>
-						<List>
-							<ListItem><Code>parse(code)</Code></ListItem>
-							<ListItem><Code>getImports(node, fileNode)</Code></ListItem>
-							<ListItem><Code>getPropNames(node)</Code></ListItem>
-						</List>
-					</Slide>
-					<Slide>
-						<Code textSize={54}>parse</Code>
-					</Slide>
-					<CodeSlide
-						transition={[]}
-						lang="js"
-						code={require("raw!../assets/parse.example")}
-						ranges={[{
-							loc: [0, 0], title: "parse(code)"
-						}, {
-							loc: [0, 1], title: "code : string"
-						}, {
-							loc: [1, 2], title: "load babylon"
-						}, {
-							loc: [2, 6], title: "parse -> AST"
-						}]}
-					/>
-					<Slide>
-						<Code textSize={54}>getPropNames</Code>
-					</Slide>
-					<CodeSlide
-						transition={[]}
-						lang="js"
-						code={require("raw!../assets/get-prop-names.example")}
-						ranges={[{
-							loc: [0, 1], title: "node is JSX snippet",
-						}, {
-							loc: [1, 2], title: "load babel",
-						}, {
-							loc: [2, 3], title: "init vars",
-						}, {
-							loc: [3, 5], title: "visit MemberExpression",
-						}, {
-							loc: [5, 6], title: "get name",
-						}]}
-					/>
-					<Slide>
-						<Code textSize={54}>getImports</Code>
-					</Slide>
 					<CodeSlide
 						transition={[]}
 						lang="js"
 						code={require("raw!../assets/get-imports.example")}
 						ranges={[{
-							loc: [0, 1], title: "getImports"
-						}, {
-							loc: [1, 2], title: "load babel"
-						}, {
-							loc: [2, 3], title: "init imports"
-						}, {
-							loc: [3, 4], title: "traverse snippet"
-						}, {
-							loc: [4, 5], title: "visit JSXElements"
-						}, {
-							loc: [5, 7], title: "get element name"
-						}, {
-							loc: [7, 9], title: "new? && !react-dom?"
-						}, {
-							loc: [9, 10], title: "add it"
-						}, {
-							loc: [17, 18], title: "now traverse file"
-						}, {
-							loc: [18, 19], title: "visit imports"
-						}, {
-							loc: [27, 29], title: "find sources"
-						}, {
-							loc: [38, 39], title: "check vars too"
-						}, {
-							loc: [48, 49], title: "warn about missing"
-						}, {
 							loc: [63, 70], title: "atom.notifications"
 						}]}
 					/>
